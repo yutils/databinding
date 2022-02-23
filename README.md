@@ -1,5 +1,7 @@
 # DataBinding 学习
 
+## 好好学习 天天向上
+
 1. 解决 findViewById(R.id.xx)
 2. 单向绑定 （给界面设置实体，界面显示实体值）
 3. 双向绑定 （界面输入框值改变，实体中值跟着改变）
@@ -7,7 +9,7 @@
 4. DataBinding 对 RecyclerView 中 adapter 使用
 5. 注解使用: @BindingAdapter ，给view在xml中使用时新增属性
 
-
+**[releases里面有APK文件。点击前往](https://github.com/yutils/databinding/releases)**
 
 **效果图**
 
