@@ -13,16 +13,19 @@ import com.yujing.utils.YToast
  * databinding demo
  * @author 余静 2022年2月18日16:55:11
  */
-class CarAdapter(var data: List<Car>?) : RecyclerView.Adapter<CarViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
-        return CarViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.activity_list_item, parent, false))
+class CarAdapter<T>(var data: List<T>?) : RecyclerView.Adapter<CarAdapter.MyViewHolder>() {
+    //ViewHolder
+    class MyViewHolder(var binding: ActivityListItemBinding) : RecyclerView.ViewHolder(binding.root) {}
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.activity_list_item, parent, false))
     }
 
-    override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
-        holder.binding.car = data?.get(position)
-        holder.binding.iv.setOnClickListener {
-            YToast.show("点击：" + data?.get(position)?.name)
-        }
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val item = data?.get(position) as Branditem
+        holder.binding.branditem = item
+        holder.binding.iv.setOnClickListener { YToast.show("点击：" + item.name) }
+
         //必须要有这行，防止闪烁
         holder.binding.executePendingBindings()
     }
@@ -31,5 +34,3 @@ class CarAdapter(var data: List<Car>?) : RecyclerView.Adapter<CarViewHolder>() {
         return data?.size ?: 0
     }
 }
-
-class CarViewHolder(var binding: ActivityListItemBinding) : RecyclerView.ViewHolder(binding.root) {}
