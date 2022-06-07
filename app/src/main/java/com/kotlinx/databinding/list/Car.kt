@@ -8,7 +8,7 @@ data class Car(
 )
 
 data class Result(
-    var branditems: List<Branditem> = listOf()
+    var branditems: MutableList<Branditem> = arrayListOf()
 )
 
 data class Branditem(
