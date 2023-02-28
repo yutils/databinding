@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick='@{()->Toast.makeText(context,"您点击了图片", Toast.LENGTH_LONG).show()}'
-            android:setImageUrl='@{"http://pic1.win4000.com/wallpaper/2020-10-19/5f8d2f350b621.jpg"}' />
+            android:setImageUrl='@{"http://dingyue.ws.126.net/2022/0330/b86f4d0fj00r9iqwg001vc000hs011xc.jpg"}' />
     </LinearLayout>
 </layout>
 ```

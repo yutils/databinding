@@ -46,10 +46,6 @@ class ListActivity : AppCompatActivity() {
         }
         adapter.onItemClickListener = { YToast.show("短按：" + value.result.branditems[it].name) }
         adapter.onItemLongClickListener = { YToast.show("长按：" + value.result.branditems[it].name) }
-        adapter.onTopListener = { YToast.show("到顶部") }
-        adapter.onBottomListener = { YToast.show("到底部") }
-        adapter.onScrollToTopListener = { YToast.show("滑动到顶部") }
-        adapter.onScrollToBottomListener = { YToast.show("滑动到底部") }
         binding.rv.adapter = adapter
     }
 

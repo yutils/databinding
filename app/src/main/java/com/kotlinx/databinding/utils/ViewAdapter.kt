@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
 object ViewAdapter {
-    //加载图片,会将setImageUrl注入到布局文件xml的ImageView中，举例： app:setImageUrl='@{"http://pic1.win4000.com/wallpaper/2020-10-19/5f8d2f350b621.jpg"}'/>
+    //加载图片,会将setImageUrl注入到布局文件xml的ImageView中，举例： app:setImageUrl='@{"http://dingyue.ws.126.net/2022/0330/b86f4d0fj00r9iqwg001vc000hs011xc.jpg"}'/>
     @BindingAdapter("android:setImageUrl")
     @JvmStatic
     fun setImageUrl(view: ImageView, url: String?) {
