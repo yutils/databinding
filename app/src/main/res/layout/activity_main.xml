@@ -5,10 +5,12 @@
 
     <!--修改databind类名称，如果加.就是工程目录，否则就是com.kotlinx.databinding.databinding.ActivityMainBinding-->
     <data class=".Bd">
-        <import type="com.kotlinx.databinding.main.User" />
-        <import type="android.widget.Toast" />
-        <import type="com.yujing.utils.YToast" />
 
+        <import type="com.kotlinx.databinding.main.User" />
+
+        <import type="android.widget.Toast" />
+
+        <import type="com.yujing.utils.YToast" />
 
         <variable
             name="user"
@@ -87,6 +89,26 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:text='@{"昵称："+user.nickName, default=""}' />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:text='@{"身高："+user.height}' />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <EditText
                         android:id="@+id/et_id"
                         android:layout_width="0dp"
@@ -137,6 +159,29 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:hint="昵称"
+                        android:text='@={user.nickName}' />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:hint="身高"
+                        android:inputType="numberDecimal"
+                        app:int='@={user.height}' />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/bt_1"
                         android:layout_width="0dp"
@@ -152,9 +197,18 @@
                         android:layout_margin="1dp"
                         android:layout_weight="1"
                         android:text="年龄+1" />
+
+                    <Button
+                        android:id="@+id/bt_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:text="身高+1" />
                 </LinearLayout>
+
                 <Button
-                    android:id="@+id/bt_3"
+                    android:id="@+id/bt_json"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"

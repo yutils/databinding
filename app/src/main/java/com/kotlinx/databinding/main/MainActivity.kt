@@ -4,13 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.gson.Gson
 import com.kotlinx.databinding.Bd
 import com.kotlinx.databinding.R
 import com.kotlinx.databinding.list.ListActivity
+import com.yujing.utils.YToast
 import com.yujing.utils.YUtils
 
 /**
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        var user = User("张三", "男", 29)
+        val user = User("张三", "男", 29)
         binding.user = user
 
         //修改名称
@@ -40,12 +40,17 @@ class MainActivity : AppCompatActivity() {
         binding.bt2.setOnClickListener {
             user.age++
         }
+        //身高+1
+        binding.bt3.setOnClickListener {
+//            user.height++
+            user.height.set(user.height.get() +1)
+        }
 
         //获取json
-        binding.bt3.setOnClickListener {
+        binding.btJson.setOnClickListener {
             val json = Gson().toJson(binding.user)
             Log.i("josn", json)
-            Toast.makeText(this, json, Toast.LENGTH_LONG).show()
+            YToast.show(json)
         }
     }
 
