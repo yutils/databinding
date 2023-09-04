@@ -1,5 +1,6 @@
 package com.kotlinx.databinding.utils
 
+import android.graphics.Typeface
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,6 +17,17 @@ object ViewAdapter {
     @JvmStatic
     fun setImageUrl(view: ImageView, url: String?) {
         Glide.with(view).load(url).into(view)
+    }
+
+    //字体加粗斜体 用法：app:b=@{boolean}   app:i="@{boolean}"
+    @BindingAdapter(value=["b", "i"], requireAll = false)
+    @JvmStatic
+    fun boldItalic(view: TextView, b: Boolean?, i: Boolean?) {
+        val t = if (b == true && i != true) Typeface.BOLD
+        else if (b != true && i == true) Typeface.ITALIC
+        else if (b == true && i == true) Typeface.BOLD_ITALIC
+        else Typeface.NORMAL
+        view.setTypeface(Typeface.SANS_SERIF, t)
     }
 
     //重复显示多次字符串
